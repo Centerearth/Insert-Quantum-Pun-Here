@@ -1,6 +1,10 @@
 qiskit>=2,<3
 qiskit-aer>=0.17,<0.19
 numpy>=1.26
-pytest>=8
-ortools>=9.10
+pandas>=2
 matplotlib>=3.8
+pylatexenc>=2.10
+jinja2>=3
+ortools>=9.10
+pytest>=8
+notebook>=7

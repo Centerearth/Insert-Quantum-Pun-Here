@@ -1,4 +1,7 @@
-"""qBraid terminal: python benchmark.py --trials 20 --seed 2026"""
+"""Original synthetic benchmark: python scripts/benchmark.py --trials 20 --seed 2026"""
+import sys, pathlib
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
 import argparse
 import csv
 import json
@@ -32,7 +35,7 @@ def main():
     parser.add_argument('--unknown-m', action='store_true',
                         help='Do not give audit M to Grover; use bounded random lengths')
     parser.add_argument('--problem', type=Path, help='Use this JSON instead of synthetic grid')
-    parser.add_argument('--out', type=Path, default=Path('results'))
+    parser.add_argument('--out', type=Path, default=ROOT / 'results' / 'benchmark')
     args = parser.parse_args()
     try:
         integer(args.trials, 'trials', 1, 100000)

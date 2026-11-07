@@ -1,13 +1,16 @@
 """Run every experiment for the care-facility scheduling study and save CSVs + plots.
 
-    python run_experiments.py                 # everything (noise study takes ~10-15 min)
-    python run_experiments.py --skip-noise    # everything except the noise study (~2 min)
-    python run_experiments.py --only-noise    # just the noise study
+    python scripts/run_experiments.py         # everything (noise study takes ~10-15 min)
+    python scripts/run_experiments.py --skip-noise  # everything except the noise study (~2 min)
+    python scripts/run_experiments.py --only-noise  # just the noise study
 
 Sizes: 4, 6 and 8 data qubits (2, 3, 4 staff). The 10-qubit case is skipped on purpose.
 Simulator wall-clock time is NEVER used as evidence of quantum speed - only query counts,
 gate counts and success probabilities are.
 """
+import sys, pathlib
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
 import argparse, csv, json, platform, random
 from math import asin, sqrt, sin
 from pathlib import Path
@@ -23,17 +26,17 @@ from scheduling import Problem, build_oracle, grover_circuit, known_iterations
 from instances import INSTANCES, care_facility, describe
 from classical import brute_force_random, backtracking, cpsat, real_size_cpsat
 
-OUT = Path('results')
+OUT = ROOT / 'results' / 'experiments'
 SEED = 2026
 SHOTS = 2000
 
 
 def save(name, rows):
-    OUT.mkdir(exist_ok=True)
+    OUT.mkdir(parents=True, exist_ok=True)
     with open(OUT / name, 'w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=list(dict.fromkeys(k for r in rows for k in r)))
         w.writeheader(); w.writerows(rows)
-    print(f'  saved results/{name}')
+    print(f'  saved results/experiments/{name}')
 
 
 def count_solutions(problem):
@@ -215,7 +218,7 @@ def experiment_noise(rates=(1e-2, 1e-3, 1e-4, 1e-5)):
 
 
 def environment(args):
-    OUT.mkdir(exist_ok=True)
+    OUT.mkdir(parents=True, exist_ok=True)
     (OUT / f'environment{"_noise" if args.only_noise else ""}.json').write_text(json.dumps(dict(
         python=platform.python_version(), qiskit=qiskit.__version__, qiskit_aer=qiskit_aer.__version__,
         ortools=ortools.__version__, numpy=np.__version__, platform=platform.platform(),
@@ -240,4 +243,4 @@ if __name__ == '__main__':
         experiment_real_size()
     if not args.skip_noise:
         experiment_noise()
-    print('\nDone. Make plots with: python make_plots.py')
+    print('\nDone. Make plots with: python scripts/make_plots.py')

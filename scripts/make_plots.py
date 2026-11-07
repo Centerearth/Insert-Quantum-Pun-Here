@@ -1,4 +1,7 @@
-"""Turn results/*.csv into slide-ready PNGs in results/plots/.   python make_plots.py"""
+"""Turn results/*.csv into slide-ready PNGs in results/plots/.   python scripts/make_plots.py"""
+import sys, pathlib
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
 import csv
 from pathlib import Path
 import matplotlib
@@ -7,7 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.ticker import MaxNLocator
 
-R = Path('results'); P = R / 'plots'; P.mkdir(parents=True, exist_ok=True)
+R = ROOT / 'results' / 'experiments'; P = ROOT / 'results' / 'plots'; P.mkdir(parents=True, exist_ok=True)
 BLUE, ORANGE, AQUA, YELLOW = '#2a78d6', '#eb6834', '#1baf7a', '#eda100'
 INK, INK2, GRID = '#0b0b0b', '#52514e', '#e4e3df'
 plt.rcParams.update({'font.size': 12, 'axes.edgecolor': INK2, 'axes.labelcolor': INK,

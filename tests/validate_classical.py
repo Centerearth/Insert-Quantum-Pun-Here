@@ -3,6 +3,9 @@
 This checks classical semantics and fixtures. It does NOT validate Qiskit/Aer.
 Run test_scheduling.py with pytest for quantum circuit validation.
 """
+import sys, pathlib
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
 import csv
 import json
 from pathlib import Path
