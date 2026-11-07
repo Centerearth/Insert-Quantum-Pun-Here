@@ -1,0 +1,4 @@
+qubits,staff,rules,schedules N,valid M,valid %
+4,2,6,16,2,12.5
+6,3,9,64,2,3.1
+8,4,11,256,3,1.2

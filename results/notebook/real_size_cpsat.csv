@@ -1,0 +1,5 @@
+staff,days,shifts,binary_variables,schedules_log2,constraints,optimize,status,wall_seconds,branches,conflicts,objective,gap_to_proven_best_percent
+30,7,3,630,630,655,False,OPTIMAL,0.015,3045,0,,
+60,7,3,1260,1260,1258,False,OPTIMAL,0.029,6116,0,,
+120,7,3,2520,2520,2415,False,OPTIMAL,0.074,12413,0,,
+250,7,3,5250,5250,4999,False,OPTIMAL,0.18,25614,0,,

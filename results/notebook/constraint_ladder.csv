@@ -1,0 +1,12 @@
+rules,newest rule,valid M,best k,CX per iteration,CX total
+1,day_headcount,96,1,509,509
+2,night_headcount,24,2,830,1660
+3,rn_on_day,20,2,866,1732
+4,rn_on_night,10,3,1011,3033
+5,no_double_Ana,7,4,1073,4292
+6,no_double_Cara,4,6,1135,6810
+7,no_double_Ben,4,6,1197,7182
+8,no_double_Dev,4,6,1587,9522
+9,Ben_unavailable_night,4,6,1667,10002
+10,Ana_Dev_not_together_day,3,7,1771,12397
+11,day_budget_85_per_hour,3,7,2329,16303
