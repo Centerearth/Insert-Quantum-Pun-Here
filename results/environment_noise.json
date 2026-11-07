@@ -1,0 +1,17 @@
+{
+  "python": "3.13.18",
+  "qiskit": "2.6.2",
+  "qiskit_aer": "0.18.2",
+  "ortools": "9.15.6755",
+  "numpy": "2.5.3",
+  "platform": "Linux-6.18.44-fc-v310-x86_64-with-glibc2.39",
+  "simulator": "Qiskit Aer AerSimulator, statevector method, CPU",
+  "transpile": "basis u+cx, optimization_level=3, seed_transpiler=0",
+  "noise": "depolarizing: rate p on every CX, p/10 on every single-qubit u gate",
+  "seed": 2026,
+  "shots": 2000,
+  "arguments": {
+    "skip_noise": false,
+    "only_noise": true
+  }
+}

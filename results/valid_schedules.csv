@@ -1,0 +1,8 @@
+data_qubits,bitstring_int,schedule
+4,6,"Ana->Night, Cara->Day"
+4,9,"Ana->Day, Cara->Night"
+6,22,"Ana->Night, Cara->Day, Ben->Day"
+6,25,"Ana->Day, Cara->Night, Ben->Day"
+8,22,"Ana->Night, Cara->Day, Ben->Day"
+8,25,"Ana->Day, Cara->Night, Ben->Day"
+8,70,"Ana->Night, Cara->Day, Dev->Day"

@@ -1,0 +1,4 @@
+data_qubits,staff,rules,N,M,valid_fraction,rule_names
+4,2,6,16,2,0.125,day_headcount; night_headcount; rn_on_day; rn_on_night; no_double_Ana; no_double_Cara
+6,3,9,64,2,0.03125,day_headcount; night_headcount; rn_on_day; rn_on_night; no_double_Ana; no_double_Cara; no_double_Ben; Ben_unavailable_night; day_budget_85_per_hour
+8,4,11,256,3,0.01171875,day_headcount; night_headcount; rn_on_day; rn_on_night; no_double_Ana; no_double_Cara; no_double_Ben; no_double_Dev; Ben_unavailable_night; Ana_Dev_not_together_day; day_budget_85_per_hour

@@ -1,0 +1,4 @@
+data_qubits,rules,total_qubits,work_qubits,N,M,iterations,cx_per_iteration,cx_total,single_qubit_total,depth,measured_success,random_guess_success,expected_oracle_calls,expected_total_queries
+4,6,8,4,16,2,2,440,880,1084,1460,0.945,0.125,2.1164021164021167,3.174603174603175
+6,9,11,5,64,2,4,1301,5240,5850,8822,0.9995,0.03125,4.0020010005002495,5.002501250625312
+8,11,13,5,256,3,7,2329,16537,18571,30380,0.9965,0.01171875,7.024586051179127,8.028098344204716

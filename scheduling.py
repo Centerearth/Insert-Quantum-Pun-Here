@@ -257,7 +257,7 @@ def build_oracle(problem):
     return Oracle(qc, perf_counter()-start, evaluations, minterms, b+1)
 
 
-def grover_circuit(problem, oracle, iterations):
+def grover_circuit(problem, oracle, iterations, measure=True):
     integer(iterations, 'iterations', 0, 10000)
     qc = oracle.circuit.copy_empty_like()
     qc.global_phase = 0
@@ -271,7 +271,8 @@ def grover_circuit(problem, oracle, iterations):
         phase_all_ones(qc, data)  # Equivalent diffuser up to global phase.
         qc.x(data)
         qc.h(data)
-    qc.measure_all()  # Work measurements also let tests detect dirty ancillas.
+    if measure:
+        qc.measure_all()  # Work measurements also let tests detect dirty ancillas.
     return qc
 
 

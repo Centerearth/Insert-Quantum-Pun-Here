@@ -1,3 +1,34 @@
+# Grover search for care-facility staff scheduling
+
+**Client:** a scheduling outsourcer that builds staff schedules for care facilities. **Question:** should they invest in quantum scheduling?
+
+## Quick start (current experiment)
+
+```bash
+python -m pip install -r requirements.txt
+python -m pytest -q                       # 42 tests: oracle correctness + classical solvers
+python run_experiments.py --skip-noise    # ~2 min
+python run_experiments.py --only-noise    # ~15 min (8-qubit noisy runs are the slow part)
+python make_plots.py                      # PNGs in results/plots/
+```
+
+| File | What it is |
+|---|---|
+| `scheduling.py` | The quantum core: rules -> reversible oracle (`build_oracle`), Grover circuit (`grover_circuit`), optimal iterations (`known_iterations`) |
+| `instances.py` | Care-facility instances: 2/3/4 staff x Day/Night = 4/6/8 qubits, with real rules (headcount, RN every shift, no doubles, availability, personnel conflict, $85/h budget) |
+| `classical.py` | Same rules solved classically: random brute force, backtracking, CP-SAT, plus CP-SAT on real-size facility weeks |
+| `run_experiments.py` | Runs all experiments, writes `results/*.csv` |
+| `make_plots.py` | Slide-ready charts |
+| `test_care_facility.py` | Checks instances, oracle phases, and that every solver returns a valid schedule |
+
+Experiments: (1) instances and their valid schedules, (2) iteration sweep with exact statevector probabilities vs. theory, (3) 2000-shot measured runs and circuit cost, (4) query comparison vs. brute force / backtracking / CP-SAT, (5) constraint ladder: cost as rules are added, (6) CP-SAT at real size, (7) depolarizing-noise study at 1e-2 ... 1e-5 two-qubit error.
+
+Circuits are transpiled to `u`+`cx` with `optimization_level=3` (best standard compiler, fair to quantum). Simulator wall-clock time is never used as evidence of speed.
+
+The sections below document the original engine and `benchmark.py` (synthetic fixtures), which remain for reference.
+
+---
+
 # Employee schedule feasibility with Grover search
 
 This is a small educational implementation for **1–10 data qubits** and **0–25 active hard constraints**. The default grid uses 3, 5, 10 data qubits × 5, 10, 25 constraints. It targets Qiskit 2.x and Qiskit Aer, using a noiseless CPU statevector simulator. It does not require a qBraid cloud-device credential or send jobs to quantum hardware.

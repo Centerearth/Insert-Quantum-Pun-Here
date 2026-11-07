@@ -1,0 +1,13 @@
+data_qubits,N,M,method,unit,mean,std,formula,trials,wall_seconds
+4,16,2,brute force (random order),full schedules checked,5.669,3.609298962402533,5.666666666666667,5000,
+4,16,2,Grover (repeat until valid),oracle calls + output checks,3.174603174603175,,(k+1)/P,2000,
+4,16,2,backtracking,partial schedules visited,7.527,2.18912562453597,,2000,
+4,16,2,CP-SAT,search branches,0,,,1,0.001404896
+6,64,2,brute force (random order),full schedules checked,22.0896,15.381806520691905,21.666666666666668,5000,
+6,64,2,Grover (repeat until valid),oracle calls + output checks,5.002501250625312,,(k+1)/P,2000,
+6,64,2,backtracking,partial schedules visited,10.4635,2.2544772675722418,,2000,
+6,64,2,CP-SAT,search branches,0,,,1,0.000851739
+8,256,3,brute force (random order),full schedules checked,63.6148,49.50962755828406,64.25,5000,
+8,256,3,Grover (repeat until valid),oracle calls + output checks,8.028098344204716,,(k+1)/P,2000,
+8,256,3,backtracking,partial schedules visited,14.3655,2.784045572543668,,2000,
+8,256,3,CP-SAT,search branches,0,,,1,0.000827295

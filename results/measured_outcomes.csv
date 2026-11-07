@@ -1,0 +1,30 @@
+data_qubits,iterations,outcome_int,valid,schedule,count
+4,2,14,False,"Ana->Night, Cara->Day, Cara->Night",6
+4,2,2,False,Ana->Night,6
+4,2,11,False,"Ana->Day, Ana->Night, Cara->Night",7
+4,2,13,False,"Ana->Day, Cara->Day, Cara->Night",8
+4,2,6,True,"Ana->Night, Cara->Day",973
+4,2,8,False,Cara->Night,6
+4,2,12,False,"Cara->Day, Cara->Night",8
+4,2,0,False,(nobody),12
+4,2,10,False,"Ana->Night, Cara->Night",8
+4,2,3,False,"Ana->Day, Ana->Night",8
+4,2,7,False,"Ana->Day, Ana->Night, Cara->Day",9
+4,2,9,True,"Ana->Day, Cara->Night",917
+4,2,5,False,"Ana->Day, Cara->Day",7
+4,2,1,False,Ana->Day,7
+4,2,15,False,"Ana->Day, Ana->Night, Cara->Day, Cara->Night",7
+4,2,4,False,Cara->Day,11
+6,4,59,False,"Ana->Day, Ana->Night, Cara->Night, Ben->Day, Ben->Night",1
+6,4,25,True,"Ana->Day, Cara->Night, Ben->Day",966
+6,4,22,True,"Ana->Night, Cara->Day, Ben->Day",1033
+8,7,108,False,"Cara->Day, Cara->Night, Ben->Night, Dev->Day",1
+8,7,131,False,"Ana->Day, Ana->Night, Dev->Night",1
+8,7,109,False,"Ana->Day, Cara->Day, Cara->Night, Ben->Night, Dev->Day",1
+8,7,38,False,"Ana->Night, Cara->Day, Ben->Night",1
+8,7,250,False,"Ana->Night, Cara->Night, Ben->Day, Ben->Night, Dev->Day, Dev->Night",1
+8,7,207,False,"Ana->Day, Ana->Night, Cara->Day, Cara->Night, Dev->Day, Dev->Night",1
+8,7,22,True,"Ana->Night, Cara->Day, Ben->Day",688
+8,7,69,False,"Ana->Day, Cara->Day, Dev->Day",1
+8,7,70,True,"Ana->Night, Cara->Day, Dev->Day",625
+8,7,25,True,"Ana->Day, Cara->Night, Ben->Day",680
