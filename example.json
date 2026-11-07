@@ -1,0 +1,16 @@
+{
+  "name": "explicit_synthetic_two_employee_example",
+  "assignments": [
+    {"employee": "Ada", "shift": "S0", "location": "Desk", "role": "Operator", "duration_units": 4},
+    {"employee": "Ben", "shift": "S0", "location": "Desk", "role": "Operator", "duration_units": 4},
+    {"employee": "Ada", "shift": "S1", "location": "Desk", "role": "Operator", "duration_units": 4},
+    {"employee": "Ben", "shift": "S1", "location": "Desk", "role": "Operator", "duration_units": 4}
+  ],
+  "constraints": [
+    {"name": "Ada_unavailable_S0", "kind": "pattern", "bits": [0], "params": {"pattern": [1]}},
+    {"name": "one_operator_S0", "kind": "count", "bits": [0, 1], "params": {"lower": 1, "upper": 1}},
+    {"name": "one_operator_S1", "kind": "count", "bits": [2, 3], "params": {"lower": 1, "upper": 1}},
+    {"name": "Ben_max_one_shift", "kind": "count", "bits": [1, 3], "params": {"lower": 0, "upper": 1}},
+    {"name": "Ada_max_four_duration_units", "kind": "weighted", "bits": [0, 2], "params": {"weights": [4, 4], "lower": 0, "upper": 4}}
+  ]
+}

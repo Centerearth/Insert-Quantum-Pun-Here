@@ -1,0 +1,4 @@
+qiskit>=2,<3
+qiskit-aer>=0.17,<0.19
+numpy>=1.26
+pytest>=8
